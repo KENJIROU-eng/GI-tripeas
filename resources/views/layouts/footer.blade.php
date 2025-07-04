@@ -189,7 +189,7 @@
                         citySelect.appendChild(option);
                     }
                 });
-)
+
                 // 都市選択で国名欄を「国名 (都市名)」に更新
                 citySelect.addEventListener('change', function () {
                     const country = countryNameInput.value.trim();
