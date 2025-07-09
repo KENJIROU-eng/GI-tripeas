@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (!Schema::hasColumn('itineraries', 'finish_at')) {
         Schema::table('itineraries', function (Blueprint $table) {
             $table->timestamp('finish_at')->nullable();
         });
+        }
     }
 
     /**

@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (!Schema::hasColumn('paypals', 'user_get_id')) {
         Schema::table('paypals', function (Blueprint $table) {
             $table->unsignedBigInteger('user_get_id');
         });
+        }
     }
 
     /**

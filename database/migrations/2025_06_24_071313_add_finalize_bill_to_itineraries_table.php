@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (!Schema::hasColumn('itineraries', 'finalize_bill_at')) {
         Schema::table('itineraries', function (Blueprint $table) {
             $table->string('finalize_bill_at')->nullable();
         });
+        }
     }
 
     /**

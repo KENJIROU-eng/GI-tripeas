@@ -9,12 +9,14 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    // public function up(): void
-    // {
-    //     Schema::table('users', function (Blueprint $table) {
-    //         $table->timestamp('first_logged_in_at')->nullable()->after('email_verified_at');
-    //     });
-    // }
+    public function up(): void
+    {
+        if (!Schema::hasColumn('users', 'first_logged_in_at')) {
+        Schema::table('users', function (Blueprint $table) {
+            $table->timestamp('first_logged_in_at')->nullable()->after('email_verified_at');
+        });
+        }
+    }
 
     /**
      * Reverse the migrations.

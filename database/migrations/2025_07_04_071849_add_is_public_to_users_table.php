@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up()
     {
+        if (!Schema::hasColumn('users', 'is_public')) {
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('is_public')->default(true);
         });
+        }
     }
 
     /**

@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up()
     {
+        if (!Schema::hasColumn('posts', 'visibility')) {
         Schema::table('posts', function (Blueprint $table) {
             $table->string('visibility')->default('public');
         });
+        }
     }
 
     /**

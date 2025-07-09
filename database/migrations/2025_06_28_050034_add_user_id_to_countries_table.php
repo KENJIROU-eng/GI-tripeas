@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (!Schema::hasColumn('countries', 'user_id')) {
         Schema::table('countries', function (Blueprint $table) {
             $table->foreignId('user_id')->after('id')->nullable()->constrained('users')->onDelete('cascade');
-
         });
+        }
     }
 
     /**

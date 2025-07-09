@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (!Schema::hasColumn('posts', 'itinerary_id')) {
         Schema::table('posts', function (Blueprint $table) {
             $table->unsignedBigInteger('itinerary_id')->nullable()->after('user_id');
             $table->foreign('itinerary_id')->references('id')->on('itineraries')->onDelete('set null');
         });
+        }
     }
 
     /**
